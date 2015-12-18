@@ -1,0 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'MXParallaxBackground_Example', :exclusive => true do
+  pod "MXParallaxBackground", :path => "../"
+end
