@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
  
   s.description      = <<-DESC
                         MXParallaxBackground is a simple background class for UIScrolView.
+                        You can add as many backgrounds as you want with different intensity and direction.
                        DESC
 
   s.homepage         = "https://github.com/maxep/MXParallaxBackground"
