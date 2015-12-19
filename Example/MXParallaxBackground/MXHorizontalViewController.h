@@ -21,6 +21,6 @@
 // THE SOFTWARE.
 #import <UIKit/UIKit.h>
 
-@interface MXBalloonsViewController : UIViewController
+@interface MXHorizontalViewController : UIViewController
 
 @end

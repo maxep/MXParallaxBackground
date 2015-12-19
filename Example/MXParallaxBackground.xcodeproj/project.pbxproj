@@ -17,8 +17,10 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		AD7700F56D77DFD1EB8F4BC7 /* libPods-MXParallaxBackground_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E27B23CBE4D3919208E5F5B1 /* libPods-MXParallaxBackground_Example.a */; };
 		D03A60F21C22F4C800A46816 /* Clouds1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03A60F11C22F4C800A46816 /* Clouds1.xib */; };
-		D03A60F51C24216F00A46816 /* MXBalloonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A60F41C24216F00A46816 /* MXBalloonsViewController.m */; };
+		D03A60F51C24216F00A46816 /* MXHorizontalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A60F41C24216F00A46816 /* MXHorizontalViewController.m */; };
 		D03A60F71C24227500A46816 /* Ground.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03A60F61C24227500A46816 /* Ground.xib */; };
+		D0A5F1561C24B853008E5652 /* MXVerticalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A5F1551C24B853008E5652 /* MXVerticalViewController.m */; };
+		D0A5F1581C24B8B3008E5652 /* Land.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A5F1571C24B8B3008E5652 /* Land.xib */; };
 		D0EE1EF81C24413900197833 /* Clouds2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0EE1EF71C24413900197833 /* Clouds2.xib */; };
 		D0FA2DA81C1E127700FDB16D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FA2DA71C1E127700FDB16D /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -44,9 +46,12 @@
 		A944EAE0E10A3F14A7D548D9 /* Pods-MXParallaxBackground_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXParallaxBackground_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXParallaxBackground_Tests/Pods-MXParallaxBackground_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C711463D5755CB64FCBC8F69 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D03A60F11C22F4C800A46816 /* Clouds1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Clouds1.xib; path = Backgrounds/Clouds1.xib; sourceTree = "<group>"; };
-		D03A60F31C24216F00A46816 /* MXBalloonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBalloonsViewController.h; sourceTree = "<group>"; };
-		D03A60F41C24216F00A46816 /* MXBalloonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBalloonsViewController.m; sourceTree = "<group>"; };
+		D03A60F31C24216F00A46816 /* MXHorizontalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXHorizontalViewController.h; sourceTree = "<group>"; };
+		D03A60F41C24216F00A46816 /* MXHorizontalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXHorizontalViewController.m; sourceTree = "<group>"; };
 		D03A60F61C24227500A46816 /* Ground.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Ground.xib; path = Backgrounds/Ground.xib; sourceTree = "<group>"; };
+		D0A5F1541C24B853008E5652 /* MXVerticalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXVerticalViewController.h; sourceTree = "<group>"; };
+		D0A5F1551C24B853008E5652 /* MXVerticalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXVerticalViewController.m; sourceTree = "<group>"; };
+		D0A5F1571C24B8B3008E5652 /* Land.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Land.xib; path = Backgrounds/Land.xib; sourceTree = "<group>"; };
 		D0EE1EF71C24413900197833 /* Clouds2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Clouds2.xib; path = Backgrounds/Clouds2.xib; sourceTree = "<group>"; };
 		D0FA2DA71C1E127700FDB16D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D923C078EF542B39DBE63B39 /* Pods_MXParallaxBackground_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXParallaxBackground_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +123,10 @@
 				D03A60E71C22EFA400A46816 /* Backgrounds */,
 				6003F59C195388D20070C39A /* MXAppDelegate.h */,
 				6003F59D195388D20070C39A /* MXAppDelegate.m */,
-				D03A60F31C24216F00A46816 /* MXBalloonsViewController.h */,
-				D03A60F41C24216F00A46816 /* MXBalloonsViewController.m */,
+				D03A60F31C24216F00A46816 /* MXHorizontalViewController.h */,
+				D03A60F41C24216F00A46816 /* MXHorizontalViewController.m */,
+				D0A5F1541C24B853008E5652 /* MXVerticalViewController.h */,
+				D0A5F1551C24B853008E5652 /* MXVerticalViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				D0FA2DA71C1E127700FDB16D /* Launch Screen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -156,6 +163,7 @@
 				D0EE1EF71C24413900197833 /* Clouds2.xib */,
 				D03A60F11C22F4C800A46816 /* Clouds1.xib */,
 				D03A60F61C24227500A46816 /* Ground.xib */,
+				D0A5F1571C24B8B3008E5652 /* Land.xib */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A5F1581C24B8B3008E5652 /* Land.xib in Resources */,
 				D03A60F21C22F4C800A46816 /* Clouds1.xib in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				D0EE1EF81C24413900197833 /* Clouds2.xib in Resources */,
@@ -282,8 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MXAppDelegate.m in Sources */,
-				D03A60F51C24216F00A46816 /* MXBalloonsViewController.m in Sources */,
+				D03A60F51C24216F00A46816 /* MXHorizontalViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				D0A5F1561C24B853008E5652 /* MXVerticalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

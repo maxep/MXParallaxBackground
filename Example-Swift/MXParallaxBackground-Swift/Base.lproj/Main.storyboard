@@ -9,7 +9,7 @@
         <!--Horizontal-->
         <scene sceneID="h3a-dD-fba">
             <objects>
-                <viewController id="ybV-Dc-zz9" customClass="MXHorizontalViewController" sceneMemberID="viewController">
+                <viewController id="ybV-Dc-zz9" customClass="MXHorizontalViewController" customModule="MXParallaxBackground_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FSg-yq-BPM"/>
                         <viewControllerLayoutGuide type="bottom" id="Cqd-2k-4iG"/>
@@ -39,7 +39,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Horizontal" image="Icon" id="LA1-QM-p66"/>
                     <connections>
-                        <outlet property="scrollView" destination="isR-xx-Lkc" id="dOR-lr-9xM"/>
+                        <outlet property="scrollView" destination="isR-xx-Lkc" id="9Wl-dz-jgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJX-jJ-2YQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -67,7 +67,7 @@
         <!--Vertical-->
         <scene sceneID="N1T-gd-FSQ">
             <objects>
-                <viewController id="Xoj-dV-6Sx" customClass="MXVerticalViewController" sceneMemberID="viewController">
+                <viewController id="Xoj-dV-6Sx" customClass="MXVerticalViewController" customModule="MXParallaxBackground_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TtO-dK-dlH"/>
                         <viewControllerLayoutGuide type="bottom" id="goC-gE-mA0"/>
@@ -90,7 +90,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Vertical" image="Icon" id="r1I-Dp-kPj"/>
                     <connections>
-                        <outlet property="scrollView" destination="WV3-6f-8VT" id="cFH-SF-Bz1"/>
+                        <outlet property="scrollView" destination="WV3-6f-8VT" id="gfU-8u-RrB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vU6-bz-F2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,6 +100,6 @@
     </scenes>
     <resources>
         <image name="Ground" width="1104" height="684"/>
-        <image name="Icon" width="64" height="64"/>
+        <image name="Icon" width="30" height="30"/>
     </resources>
 </document>

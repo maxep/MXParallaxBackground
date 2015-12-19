@@ -7,9 +7,9 @@
 
 MXParallaxBackground is a simple background class for UIScrolView.
 
-|                Screenshot               |
-|-----------------------------------------|
-|![Demo](Example/MXParallaxBackground.gif)|
+|          Horizontal           |          Vertical           |
+|-------------------------------|-----------------------------|
+|![Demo](Example/Horizontal.gif)|![Demo](Example/Vertical.gif)|
 
 ## Usage
 
@@ -21,7 +21,7 @@ pod try MXParallaxBackground
 
 Or clone the repo and run `pod install` from the Example directory first.
 
-+ Adding a parallax header to a UIScrollView is straightforward, e.g:
++ Adding a parallax background to a UIScrollView is straightforward, e.g:
 
 ```objective-c
 UIImageView *imageView = [UIImageView new];
@@ -50,6 +50,10 @@ pod "MXParallaxBackground"
 [Maxime Epain](http://maxep.github.io)
 
 [![Twitter](https://img.shields.io/badge/twitter-%40MaximeEpain-blue.svg?style=flat)](https://twitter.com/MaximeEpain)
+
+## Credits
+
+Images are taken from [this](http://jonathannicol.com/blog/2011/08/06/build-a-parallax-scrolling-website-interface-with-jquery-and-css/) tutorial made by [Jonathan Nicol](https://github.com/jnicol).
 
 ## License
 

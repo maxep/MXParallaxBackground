@@ -1,4 +1,4 @@
-// MXBalloonsViewController.m
+// MXVerticalViewController.m
 //
 // Copyright (c) 2015 Maxime Epain
 //
@@ -20,42 +20,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "MXBalloonsViewController.h"
+#import "MXVerticalViewController.h"
 #import "MXParallaxBackground.h"
 
-@interface MXBalloonsViewController ()
+@interface MXVerticalViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
 
-@implementation MXBalloonsViewController
+@implementation MXVerticalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPages];
     
-    // Sets backgrounds
+    MXParallaxBackground *land = [MXParallaxBackground new];
+    land.view = [NSBundle.mainBundle loadNibNamed:@"Land" owner:self options:nil].firstObject;
+    land.intensity = 0.80;
+    [self.scrollView addBackground:land];
+    
     MXParallaxBackground *clouds1 = [MXParallaxBackground new];
     clouds1.view = [NSBundle.mainBundle loadNibNamed:@"Clouds1" owner:self options:nil].firstObject;
-    clouds1.intensity = 0.25;
+    clouds1.intensity = 0.5;
     [self.scrollView addBackground:clouds1];
     
     MXParallaxBackground *clouds2 = [MXParallaxBackground new];
     clouds2.view = [NSBundle.mainBundle loadNibNamed:@"Clouds2" owner:self options:nil].firstObject;
-    clouds2.intensity = 0.5;
+    clouds2.intensity = 0.25;
     clouds2.reverse = YES;
-    [self.scrollView addBackground:clouds2];
     
-    [self.scrollView bringBackgroundToFront:clouds2];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.scrollView bringBackgroundToFront:land];
+    [self.scrollView insertBackground:clouds2 belowBackground:land];
+    
 }
 
 - (void) loadPages {
     NSMutableDictionary *views = [NSMutableDictionary new];
-    NSMutableString *hFormat = [NSMutableString stringWithString:@"H:|"];
+    NSMutableString *hFormat = [NSMutableString stringWithString:@"V:|"];
     
     for (NSInteger i = 0; i < 3; i++) {
         NSString *imageName = [NSString stringWithFormat:@"Balloon%li", (i + 1)];
@@ -67,37 +67,28 @@
         
         [self.scrollView addSubview:imageView];
         
-        [views setObject:imageView forKey:imageName];
-        NSString *vFormat = [NSString stringWithFormat:@"V:|[%@]|", imageName];
+        views[imageName] = imageView;
+        NSString *vFormat = [NSString stringWithFormat:@"H:|[%@]|", imageName];
         [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vFormat
                                                                                 options:0
                                                                                 metrics:nil
                                                                                   views:views]];
         
         [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:imageView
-                                                              attribute:NSLayoutAttributeCenterY
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:self.scrollView
-                                                              attribute:NSLayoutAttributeCenterY
-                                                             multiplier:1
-                                                               constant:0]];
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.scrollView
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1
+                                                                     constant:0]];
         
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:imageView
-                                                              attribute:NSLayoutAttributeWidth
+                                                              attribute:NSLayoutAttributeHeight
                                                               relatedBy:NSLayoutRelationEqual
                                                                  toItem:self.view
-                                                              attribute:NSLayoutAttributeWidth
+                                                              attribute:NSLayoutAttributeHeight
                                                              multiplier:1
                                                                constant:0]];
-        
-//        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:imageView
-//                                                              attribute:NSLayoutAttributeHeight
-//                                                              relatedBy:NSLayoutRelationEqual
-//                                                                 toItem:self.view
-//                                                              attribute:NSLayoutAttributeHeight
-//                                                             multiplier:0.5
-//                                                               constant:0]];
-        
         [hFormat appendFormat:@"[%@]", imageName];
     }
     
