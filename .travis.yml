@@ -1,16 +1,32 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
-osx_image: xcode7
 language: objective-c
-cache: cocoapods
-podfile: Example/Podfile
+osx_image: xcode8
+env: 
+  global:
+  - FRAMEWORK_NAME=MXParallaxBackground
+
 before_install:
-- gem install cocoapods
-- pod install --project-directory=Example
+- brew update
+- brew outdated carthage || brew upgrade carthage
+
 install:
+- gem install cocoapods
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+
 script:
-- set -o pipefail && xcodebuild -workspace Example/MXParallaxBackground.xcworkspace -scheme MXParallaxBackground-Example -sdk iphonesimulator -configuration Release -destination "platform=iOS Simulator,name=iPhone 6s" | xcpretty -c
+- set -o pipefail && xcodebuild -project MXParallaxBackground.xcodeproj -scheme $FRAMEWORK_NAME
+  -sdk iphonesimulator10.0 -configuration Release | xcpretty -c
 - pod lib lint --quick
+
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: cTFpyQfhi/tdksPxTKwqyQP5schVnEpZq3l27owPJqt1e1Mwwf/YNtcJGM+0O/HQ+I+tD7fc6NOXVhT+lmUyJ3Nm4Lw5qe/9+2azT3sH2gPHRrQwQ6aPNY2RSk7tbif9DYZVv+NEALIAcrdJEBJ+48tMLZxn5KrPJXIwhQFS9DugpG5Ov4DJUeFFiGKRmKvOqxdrNuJAM9OGwXTsoBfHHa6X1avU8xXwvOjjolO2CmVcRg60gKN1U1pGo9mnTf5svERbQTAKPu65m1V1MYtlJncZlBvHBCPM5kiVx6AT0A4v4ndHGNxfJGim5SVqupyWpGhsIJLmzXM1FhVeU1lt0yAvja7qMq44fyYPIfea7pAbidzpsoYeOoQRFdYFK7KYWXvZ77JRqd3Jm+jWEriIXgDYy+Z64WWZnMRj1xpaVDqKFsIzL1BCMVzgXwV/lqAdyxv4CzSLIPgGnhVmXrLmK1DVF2teZeq/OTKq0AzxTQIshYQbMwooZj1PJqzhCgpNz3mhpsxt6x5PALz2XFxeJEhybFiDx5foOL3o1n+CrM0IWD2h77e2igf48LuaFO4wmJ24loNbMbXi5+d+FKzfXv1XUxsm7/C20Lq1vLZl8sosNujCshHXuCmGfE1QpHjB1qFO5kDE/BkRLAjNNlhZQgE2zxdqh8at6JW4uxemcEY=
+  file: $FRAMEWORK_NAME.framework.zip
+  skip_cleanup: true
+  on:
+    repo: maxep/MXParallaxBackground
+    tags: true

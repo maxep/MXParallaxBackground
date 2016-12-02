@@ -23,7 +23,7 @@
 #import <objc/runtime.h>
 #import "MXParallaxBackground.h"
 
-CGFloat interval(CGFloat value, CGFloat min, CGFloat max) {
+CGFloat MXInterval(CGFloat value, CGFloat min, CGFloat max) {
     if (value < min)
         return min;
     else if (value > max)
@@ -78,7 +78,7 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
     self.scrollView = nil;
 }
 
-- (void) layoutBackground {
+- (void)layoutBackground {
     
     CGRect frame = self.scrollView.frame;
     //Vector between scroll view's frame size and content size
@@ -100,18 +100,18 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
     CGVector v2 = CGVectorMake((size.width - self.scrollView.frame.size.width), (size.height - self.scrollView.frame.size.height));
     
     //Compute background's content offset
-    CGFloat x   = v2.dx * self.scrollView.contentOffset.x / (v1.dx? v1.dx : 1);
-    CGFloat y   = v2.dy * self.scrollView.contentOffset.y / (v1.dy? v1.dy : 1);
+    CGFloat x = v2.dx * self.scrollView.contentOffset.x / (v1.dx?: 1);
+    CGFloat y = v2.dy * self.scrollView.contentOffset.y / (v1.dy?: 1);
     
     //Reverse content offset
     if (self.isReverse) {
         x = v2.dx - x;
-        y = v2.dy- y;
+        y = v2.dy - y;
     }
     
     //No bouncing
-    x = interval(x, 0, v2.dx);
-    y = interval(y, 0, v2.dy);
+    x = MXInterval(x, 0, v2.dx);
+    y = MXInterval(y, 0, v2.dy);
     
     self.backgroundView.contentOffset = CGPointMake(x, y);
 }
@@ -148,7 +148,7 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
 }
 
 - (void)setIntensity:(CGFloat)intensity {
-    _intensity = interval(intensity, 0, 1);
+    _intensity = MXInterval(intensity, 0, 1);
     [self layoutBackground];
 }
 
@@ -164,11 +164,9 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
     if (context == kMXParallaxBackgroundKVOContext) {
         
         if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
-            
             [self layoutBackground];
         }
-    }
-    else {
+    } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
@@ -190,14 +188,14 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
     return self.stack.copy;
 }
 
-- (void) addBackgroundToStack:(MXParallaxBackground *) background {
+- (void)addBackgroundToStack:(MXParallaxBackground *)background {
     background.scrollView = self;
     
     if ([self.stack containsObject:background]) {
         [self.stack removeObject:background];
     }
     
-    NSInteger index = interval([self.subviews indexOfObject:background.backgroundView], 0, self.stack.count);
+    NSInteger index = MXInterval([self.subviews indexOfObject:background.backgroundView], 0, self.stack.count);
     [self.stack insertObject:background atIndex:index];
 }
 

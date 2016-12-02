@@ -1,0 +1,5 @@
+framework module MXParallaxBackground {
+    umbrella header "MXParallaxBackground-umbrella.h"
+    export *
+    module * { export * }
+}
