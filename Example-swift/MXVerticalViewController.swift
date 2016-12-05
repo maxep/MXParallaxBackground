@@ -35,20 +35,20 @@ class MXVerticalViewController: UIViewController {
         let land = MXParallaxBackground()
         land.view = Bundle.main.loadNibNamed("Land", owner: self, options: nil)?[0] as? UIView
         land.intensity = 0.80
-        self.scrollView.add(land)
+        self.scrollView.add(background: land)
         
         let clouds1 = MXParallaxBackground()
         clouds1.view = Bundle.main.loadNibNamed("Clouds1", owner: self, options: nil)?[0] as? UIView
         clouds1.intensity = 0.5
-        self.scrollView.add(clouds1)
+        self.scrollView.add(background: clouds1)
         
         let clouds2 = MXParallaxBackground()
         clouds2.view = Bundle.main.loadNibNamed("Clouds2", owner: self, options: nil)?[0] as? UIView
         clouds2.intensity = 0.25
         clouds2.isReverse = true
         
-        self.scrollView.bringBackground(toFront: land)
-        self.scrollView.insert(clouds2, below: land)
+        scrollView.bringBackground(toFront: land)
+        scrollView.insert(background: clouds2, below: land)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,10 +68,10 @@ class MXVerticalViewController: UIViewController {
             imageView.contentMode = .center
             imageView.translatesAutoresizingMaskIntoConstraints = false
             
-            self.scrollView.addSubview(imageView)
+            scrollView.addSubview(imageView)
             
             views[imageName] = imageView
-            self.scrollView.addConstraints(
+            scrollView.addConstraints(
                 NSLayoutConstraint.constraints(
                     withVisualFormat: "H:|[\(imageName)]|",
                     options: .directionLeadingToTrailing,
@@ -80,42 +80,35 @@ class MXVerticalViewController: UIViewController {
                 )
             )
             
-            self.scrollView.addConstraint(
-                NSLayoutConstraint(
-                    item: imageView,
-                    attribute: .centerX,
-                    relatedBy: .equal,
-                    toItem: self.scrollView,
-                    attribute: .centerX,
-                    multiplier: 1,
-                    constant: 0
-                )
+            scrollView.addConstraint( NSLayoutConstraint(
+                item: imageView,
+                attribute: .centerX,
+                relatedBy: .equal,
+                toItem: scrollView,
+                attribute: .centerX,
+                multiplier: 1,
+                constant: 0)
             )
             
-            self.view .addConstraint(
-                NSLayoutConstraint(
-                    item: imageView,
-                    attribute: .height,
-                    relatedBy: .equal,
-                    toItem: self.view,
-                    attribute: .height,
-                    multiplier: 1,
-                    constant: 0
-                )
+            view.addConstraint( NSLayoutConstraint(
+                item: imageView,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: view,
+                attribute: .height,
+                multiplier: 1,
+                constant: 0)
             )
             
             format += "[\(imageName)]"
         }
         
         format += "|"
-        self.scrollView.addConstraints(
-            NSLayoutConstraint.constraints(
-                withVisualFormat: format,
-                options: .directionLeadingToTrailing,
-                metrics: nil,
-                views: views
-            )
+        scrollView.addConstraints( NSLayoutConstraint.constraints(
+            withVisualFormat: format,
+            options: .directionLeadingToTrailing,
+            metrics: nil,
+            views: views)
         )
     }
 }
-

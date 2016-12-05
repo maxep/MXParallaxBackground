@@ -1,6 +1,6 @@
 // MXParallaxBackground.h
 //
-// Copyright (c) 2015 Maxime Epain
+// Copyright (c) 2016 Maxime Epain
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -64,14 +64,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The background array.
  */
-@property(nonatomic,readonly, copy) NSArray<__kindof MXParallaxBackground *> *backgrounds;
+@property(nonatomic,readonly, copy) NSArray<MXParallaxBackground *> *backgrounds;
 
 /**
  Adds a background on top of others backgrounds.
  
  @param background The background to add.
  */
-- (void)addBackground:(MXParallaxBackground *)background;
+- (void)addBackground:(MXParallaxBackground *)background NS_SWIFT_NAME(add(background:));
 
 /**
  Inserts a background at a specific index.
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param background The background to insert.
  @param index      The index of the background in the view stack.
  */
-- (void)insertBackground:(MXParallaxBackground *)background atIndex:(NSInteger)index;
+- (void)insertBackground:(MXParallaxBackground *)background atIndex:(NSInteger)index NS_SWIFT_NAME(insert(background:at:));
 
 /**
  Inserts a background below a sibling background.
@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param background        The background to insert.
  @param siblingBackground The sibling background.
  */
-- (void)insertBackground:(MXParallaxBackground *)background belowBackground:(MXParallaxBackground *)siblingBackground;
+- (void)insertBackground:(MXParallaxBackground *)background belowBackground:(MXParallaxBackground *)siblingBackground NS_SWIFT_NAME(insert(background:below:));
 
 /**
  Inserts a background above a sibling  background.
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param background        The background to insert.
  @param siblingBackground The sibling background.
  */
-- (void)insertBackground:(MXParallaxBackground *)background aboveBackground:(MXParallaxBackground *)siblingBackground;
+- (void)insertBackground:(MXParallaxBackground *)background aboveBackground:(MXParallaxBackground *)siblingBackground NS_SWIFT_NAME(insert(background:above:));
 
 /**
  Inserts a background below a sibling view.
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param background     The background to insert.
  @param siblingSubview The sibling background view.
  */
-- (void)insertBackground:(MXParallaxBackground *)background belowSubview:(UIView *)siblingSubview;
+- (void)insertBackground:(MXParallaxBackground *)background belowSubview:(UIView *)siblingSubview NS_SWIFT_NAME(insert(background:belowSubview:));
 
 /**
  Inserts a background above a sibling view.
@@ -111,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param background     The background to insert.
  @param siblingSubview The sibling background view.
  */
-- (void)insertBackground:(MXParallaxBackground *)background aboveSubview:(UIView *)siblingSubview;
+- (void)insertBackground:(MXParallaxBackground *)background aboveSubview:(UIView *)siblingSubview NS_SWIFT_NAME(insert(background:aboveSubview:));
 
 /**
  Brings the background to the front of the subview stack.

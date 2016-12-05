@@ -1,6 +1,6 @@
 // MXParallaxBackground.m
 //
-// Copyright (c) 2015 Maxime Epain
+// Copyright (c) 2016 Maxime Epain
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -86,7 +86,7 @@ static void * const kMXParallaxBackgroundKVOContext = (void*)&kMXParallaxBackgro
     //Size of the view
     CGSize size = CGSizeMake(v1.dx * self.intensity + frame.size.width, v1.dy * self.intensity + frame.size.height);
     
-    //Layout background view always on screen
+    //Layout background view always visible
     frame.origin = CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y);
     self.backgroundView.frame = frame;
     self.backgroundView.contentSize = size;

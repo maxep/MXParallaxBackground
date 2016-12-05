@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MXParallaxBackground"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "MXParallaxBackground is a simple background class for UIScrolView."
  
   s.description      = <<-DESC
