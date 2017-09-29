@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode9
 env: 
   global:
   - FRAMEWORK_NAME=MXParallaxBackground
@@ -14,7 +14,7 @@ install:
 
 script:
 - set -o pipefail && xcodebuild -project MXParallaxBackground.xcodeproj -scheme $FRAMEWORK_NAME
-  -sdk iphonesimulator10.0 -configuration Release | xcpretty -c
+  -sdk iphonesimulator11.0 -configuration Release | xcpretty -c
 - pod lib lint --quick
 
 before_deploy:
