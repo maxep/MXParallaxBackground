@@ -2,8 +2,8 @@
 //  main.m
 //  MXParallaxBackground
 //
-//  Created by Maxime Epain on 12/13/2015.
-//  Copyright (c) 2015 Maxime Epain. All rights reserved.
+//  Created by Maxime Epain on 12/13/2019.
+//  Copyright (c) 2019 Maxime Epain. All rights reserved.
 //
 
 @import UIKit;

@@ -147,8 +147,7 @@
 				9C4FCCCA1DF1D1D60065C140 /* Metadata */,
 				9C4FCC5E1DF1C9840065C140 /* MXParallaxBackground */,
 				9C4FCC681DF1CA6A0065C140 /* Framework */,
-				9C4FCC751DF1CB2E0065C140 /* Example-objc */,
-				9C4FCCA71DF1CE9A0065C140 /* Example-swift */,
+				9C73FA4022FC75030021C818 /* Examples */,
 				9C4FCC5D1DF1C9840065C140 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -181,7 +180,7 @@
 			path = Framework;
 			sourceTree = "<group>";
 		};
-		9C4FCC751DF1CB2E0065C140 /* Example-objc */ = {
+		9C4FCC751DF1CB2E0065C140 /* objective-c */ = {
 			isa = PBXGroup;
 			children = (
 				9C4FCC8B1DF1CC150065C140 /* Backgrounds */,
@@ -197,7 +196,7 @@
 				9C4FCC871DF1CB2F0065C140 /* Info.plist */,
 				9C4FCC761DF1CB2E0065C140 /* Supporting Files */,
 			);
-			path = "Example-objc";
+			path = "objective-c";
 			sourceTree = "<group>";
 		};
 		9C4FCC761DF1CB2E0065C140 /* Supporting Files */ = {
@@ -218,7 +217,7 @@
 			path = Backgrounds;
 			sourceTree = "<group>";
 		};
-		9C4FCCA71DF1CE9A0065C140 /* Example-swift */ = {
+		9C4FCCA71DF1CE9A0065C140 /* swift */ = {
 			isa = PBXGroup;
 			children = (
 				9C4FCCC11DF1D0A40065C140 /* Backgrounds */,
@@ -230,7 +229,7 @@
 				9C4FCCB11DF1CE9A0065C140 /* LaunchScreen.storyboard */,
 				9C4FCCB41DF1CE9A0065C140 /* Info.plist */,
 			);
-			path = "Example-swift";
+			path = swift;
 			sourceTree = "<group>";
 		};
 		9C4FCCC11DF1D0A40065C140 /* Backgrounds */ = {
@@ -251,6 +250,15 @@
 				9C4FCCCD1DF1D1EF0065C140 /* README.md */,
 			);
 			name = Metadata;
+			sourceTree = "<group>";
+		};
+		9C73FA4022FC75030021C818 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				9C4FCC751DF1CB2E0065C140 /* objective-c */,
+				9C4FCCA71DF1CE9A0065C140 /* swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +339,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Maxime Epain";
 				TargetAttributes = {
 					9C4FCC5B1DF1C9840065C140 = {
@@ -341,20 +349,16 @@
 					};
 					9C4FCC731DF1CB2E0065C140 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = C75GEDTP26;
-						ProvisioningStyle = Automatic;
 					};
 					9C4FCCA51DF1CE9A0065C140 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = C75GEDTP26;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 9C4FCC561DF1C9840065C140 /* Build configuration list for PBXProject "MXParallaxBackground" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -493,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -502,6 +507,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -509,6 +515,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -517,7 +524,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -551,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -560,6 +567,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -567,6 +575,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -575,7 +584,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -644,8 +652,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C75GEDTP26;
-				INFOPLIST_FILE = "$(SRCROOT)/Example-objc/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/objective-c/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxep.MXParallaxBackground-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -656,8 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C75GEDTP26;
-				INFOPLIST_FILE = "$(SRCROOT)/Example-objc/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/objective-c/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxep.MXParallaxBackground-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -668,9 +674,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C75GEDTP26;
-				INFOPLIST_FILE = "$(SRCROOT)/Example-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxep.MXParallaxBackground-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -684,9 +688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C75GEDTP26;
-				INFOPLIST_FILE = "$(SRCROOT)/Example-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = "$(SRCROOT)/Examples/swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxep.MXParallaxBackground-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";

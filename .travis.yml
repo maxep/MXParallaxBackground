@@ -1,30 +1,25 @@
 language: objective-c
-osx_image: xcode9
-env: 
+osx_image: xcode10.2
+env:
   global:
   - FRAMEWORK_NAME=MXParallaxBackground
-
 before_install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
-
 install:
 - gem install cocoapods
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-
+- gem install xcpretty --no-document --quiet
 script:
 - set -o pipefail && xcodebuild -project MXParallaxBackground.xcodeproj -scheme $FRAMEWORK_NAME
-  -sdk iphonesimulator11.0 -configuration Release | xcpretty -c
+  -sdk iphonesimulator12.2 -configuration Release | xcpretty -c
 - pod lib lint --quick
-
 before_deploy:
 - carthage build --no-skip-current
 - carthage archive $FRAMEWORK_NAME
-
 deploy:
   provider: releases
   api_key:
-    secure: cTFpyQfhi/tdksPxTKwqyQP5schVnEpZq3l27owPJqt1e1Mwwf/YNtcJGM+0O/HQ+I+tD7fc6NOXVhT+lmUyJ3Nm4Lw5qe/9+2azT3sH2gPHRrQwQ6aPNY2RSk7tbif9DYZVv+NEALIAcrdJEBJ+48tMLZxn5KrPJXIwhQFS9DugpG5Ov4DJUeFFiGKRmKvOqxdrNuJAM9OGwXTsoBfHHa6X1avU8xXwvOjjolO2CmVcRg60gKN1U1pGo9mnTf5svERbQTAKPu65m1V1MYtlJncZlBvHBCPM5kiVx6AT0A4v4ndHGNxfJGim5SVqupyWpGhsIJLmzXM1FhVeU1lt0yAvja7qMq44fyYPIfea7pAbidzpsoYeOoQRFdYFK7KYWXvZ77JRqd3Jm+jWEriIXgDYy+Z64WWZnMRj1xpaVDqKFsIzL1BCMVzgXwV/lqAdyxv4CzSLIPgGnhVmXrLmK1DVF2teZeq/OTKq0AzxTQIshYQbMwooZj1PJqzhCgpNz3mhpsxt6x5PALz2XFxeJEhybFiDx5foOL3o1n+CrM0IWD2h77e2igf48LuaFO4wmJ24loNbMbXi5+d+FKzfXv1XUxsm7/C20Lq1vLZl8sosNujCshHXuCmGfE1QpHjB1qFO5kDE/BkRLAjNNlhZQgE2zxdqh8at6JW4uxemcEY=
+    secure: lAqjJEprMrh/cuQknRWNoY+jJtpFbx9YuXxlzNXUUQ0vGQPn/Sn2PTB2lYlMYuTJiyzzoyx/XxggupjOmdTc75DvesYDZlneaohxmmHcl/jZHTFHHumhJsdsez5s/VXq0Awv3bMk9mbO3tzvzhdvOIMXBQKgO/h8XX4Yhicl9T62PEGpVkyf3pTSmentPmN3WH9pp0YsJTxE0AINxe4tIcYIRPh3xOASjZhAXyYCFA0QnRknhMRDC51ncpCGLuxVI3cw85/w6gLnFap2dToaN9NttmWjAM52PVf+rFyCV1waKB5txtej1LF+bKumX2i6bKwPirpooQds8FeXqdzXmtCmbkOF7Lz3xLZPf4EAcwcRZQJE/sakCn9lqD+F63uQfUaJFh4TDzVaBzhlZDPrY/pbnvI7xM5ZHHgyH6XRaOhGsAIV/rhvmCcW2Ctj+QOOgzrllwogU5BZF51/CNSy3YqAcvrCsrjwQ87eM5orBGFzEqE2IZQnyQXr4+3EPh9dVQVAqgaFwujla8WXG7NkuNtbX9j6coWVSzD6Af6JuYh5Thekb/5jamRhKmcRPGjDda2DuDMD/T5RyAK6kypL+hVG4/oZJFnHldEmndxhwCUic/2y7LYbRr/+ttiu9nLnXG1ze6d2KYNBGX1F1lFvseSni7T6j0GmiIrcQ7PLEkE=
   file: $FRAMEWORK_NAME.framework.zip
   skip_cleanup: true
   on:

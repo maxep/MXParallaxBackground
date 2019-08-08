@@ -1,6 +1,6 @@
-// MXVerticalViewController.swift
+// MXHorizontalViewController.swift
 //
-// Copyright (c) 2015 Maxime Epain
+// Copyright (c) 2019 Maxime Epain
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 import UIKit
 import MXParallaxBackground
 
-class MXVerticalViewController: UIViewController {
+class MXHorizontalViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -32,23 +32,18 @@ class MXVerticalViewController: UIViewController {
         loadPages()
         
         // Sets backgrounds
-        let land = MXParallaxBackground()
-        land.view = Bundle.main.loadNibNamed("Land", owner: self, options: nil)?[0] as? UIView
-        land.intensity = 0.80
-        self.scrollView.add(background: land)
-        
         let clouds1 = MXParallaxBackground()
         clouds1.view = Bundle.main.loadNibNamed("Clouds1", owner: self, options: nil)?[0] as? UIView
-        clouds1.intensity = 0.5
-        self.scrollView.add(background: clouds1)
+        clouds1.intensity = 0.25
+        scrollView.add(background: clouds1)
         
         let clouds2 = MXParallaxBackground()
         clouds2.view = Bundle.main.loadNibNamed("Clouds2", owner: self, options: nil)?[0] as? UIView
-        clouds2.intensity = 0.25
+        clouds2.intensity = 0.5
         clouds2.isReverse = true
+        scrollView.add(background: clouds2)
         
-        scrollView.bringBackground(toFront: land)
-        scrollView.insert(background: clouds2, below: land)
+        scrollView.bringBackground(toFront: clouds2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,44 +53,42 @@ class MXVerticalViewController: UIViewController {
     
     fileprivate func loadPages() {
         var views = Dictionary<String,UIView>()
-        var format  = "V:|"
+        var format  = "H:|"
         
         for i in 1...3 {
             let imageName = "Balloon\(i)"
             
             let imageView = UIImageView()
             imageView.image = UIImage(named: imageName);
-            imageView.contentMode = .center
+            imageView.contentMode = UIViewContentMode.center
             imageView.translatesAutoresizingMaskIntoConstraints = false
             
             scrollView.addSubview(imageView)
             
             views[imageName] = imageView
-            scrollView.addConstraints(
-                NSLayoutConstraint.constraints(
-                    withVisualFormat: "H:|[\(imageName)]|",
-                    options: .directionLeadingToTrailing,
-                    metrics: nil,
-                    views: views
-                )
+            scrollView.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|[\(imageName)]|",
+                options: .directionLeadingToTrailing,
+                metrics: nil,
+                views: views)
             )
             
             scrollView.addConstraint( NSLayoutConstraint(
                 item: imageView,
-                attribute: .centerX,
+                attribute: .centerY,
                 relatedBy: .equal,
                 toItem: scrollView,
-                attribute: .centerX,
+                attribute: .centerY,
                 multiplier: 1,
                 constant: 0)
             )
             
             view.addConstraint( NSLayoutConstraint(
                 item: imageView,
-                attribute: .height,
+                attribute: .width,
                 relatedBy: .equal,
                 toItem: view,
-                attribute: .height,
+                attribute: .width,
                 multiplier: 1,
                 constant: 0)
             )

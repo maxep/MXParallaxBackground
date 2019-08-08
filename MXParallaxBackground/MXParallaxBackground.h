@@ -1,6 +1,6 @@
 // MXParallaxBackground.h
 //
-// Copyright (c) 2016 Maxime Epain
+// Copyright (c) 2019 Maxime Epain
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The background array.
  */
-@property(nonatomic,readonly, copy) NSArray<MXParallaxBackground *> *backgrounds;
+@property(nonatomic, readonly, copy) NSArray<MXParallaxBackground *> *backgrounds;
 
 /**
  Adds a background on top of others backgrounds.

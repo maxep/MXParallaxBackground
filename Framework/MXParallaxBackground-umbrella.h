@@ -2,8 +2,8 @@
 //  MXParallaxBackground.h
 //  MXParallaxBackground
 //
-//  Created by Maxime Epain on 02/12/2016.
-//  Copyright © 2016 Maxime Epain. All rights reserved.
+//  Created by Maxime Epain on 02/12/2019.
+//  Copyright © 2019 Maxime Epain. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
