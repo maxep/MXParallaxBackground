@@ -10,7 +10,7 @@ MXParallaxBackground is a simple background class for UIScrolView.
 
 |          Horizontal           |          Vertical           |
 |-------------------------------|-----------------------------|
-|![Demo](Example-objc/Horizontal.gif)|![Demo](Example-objc/Vertical.gif)|
+|![Demo](Examples/objective-c/Horizontal.gif)|![Demo](Examples/objective-c/Vertical.gif)|
 
 ## Usage
 
@@ -24,7 +24,8 @@ Or clone the repo and run `pod install` from the Example directory first.
 
 + Adding a parallax background to a UIScrollView is straightforward, e.g:
 
-##### Swift
+<details open=1>
+<summary>Swift</summary>
 
 ```swift
 let imageView = UIImageView()
@@ -38,8 +39,10 @@ background.intensity = 0.75
 let scrollView = UIScrollView()
 scrollView.add(background)
 ```
+</details>
 
-##### Objective-C
+<details>
+<summary>Objective-C</summary>
 
 ```objective-c
 UIImageView *imageView = [UIImageView new];
@@ -53,6 +56,7 @@ background.intensity = 0.75;
 UIScrollView *scrollView = [UIScrollView new]; 
 [scrollView addBackground:background];
 ```
+</details>
 
 ## Installation
 
